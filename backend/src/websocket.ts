@@ -14,10 +14,11 @@ export const setupWebSocket = (server: Server) => {
     ws.on("message", (data) => {
       try {
         const parsedData = JSON.parse(data.toString());
+        console.log(parsedData);
 
         // Jika data adalah pesan "register", simpan koneksi user
         if (parsedData.type === "register") {
-          const userId = parsedData.user_id;
+          const userId = Number(parsedData.user_id);
           users.set(userId, ws);
           console.log(`User ${userId} connected`);
           return;
