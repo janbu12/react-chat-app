@@ -4,6 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { setupWebSocket } from "./websocket";
 import router from "./routes";
+import authRoutes from "./auth";
 
 dotenv.config();
 const app = express();
@@ -11,7 +12,8 @@ const server = http.createServer(app);
 
 app.use(cors());
 app.use(express.json());
-app.use("/api", router); // Tambahkan route API
+app.use("/api", router);
+app.use("/auth", authRoutes);
 
 setupWebSocket(server);
 
