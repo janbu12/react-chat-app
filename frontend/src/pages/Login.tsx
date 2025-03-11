@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -30,7 +30,11 @@ const Login = () => {
         <Input type="text" id="username" placeholder="Username" onChange={(e) => setUsername(e.target.value)} required />
         <Label htmlFor="password">Password</Label>
         <Input type="password" id="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
-        <Button type="submit">Login</Button>
+        <p className="text-xs text-zinc-600 text-center">
+          You don't have account? 
+          <Link to={"/register"} className="font-medium hover:text-zinc-900"> Register</Link>
+        </p>
+        <Button type="submit" className="hover:cursor-pointer">Login</Button>
       </form>
     </div>
   );

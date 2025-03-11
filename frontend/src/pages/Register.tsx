@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -36,6 +36,10 @@ const Register = () => {
         <Input type="text" id="username" placeholder="Username" onChange={(e) => setUsername(e.target.value)} required />
         <Label htmlFor="password">Password</Label>
         <Input type="password" id="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
+        <p className="text-xs text-zinc-600 text-center">
+          Already have an account? 
+          <Link to={"/login"} className="font-medium hover:text-zinc-900"> Login</Link>
+        </p>
         <Button type="submit">Register</Button>
       </form>
       {error && <p className="text-red-500 mt-2">{error}</p>}
