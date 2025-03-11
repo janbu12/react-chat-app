@@ -40,7 +40,7 @@ const Register = () => {
           Already have an account? 
           <Link to={"/login"} className="font-medium hover:text-zinc-900"> Login</Link>
         </p>
-        <Button type="submit">Register</Button>
+        <Button type="submit" className="hover:cursor-pointer">Register</Button>
       </form>
       {error && <p className="text-red-500 mt-2">{error}</p>}
     </div>
